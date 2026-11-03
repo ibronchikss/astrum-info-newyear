@@ -209,15 +209,10 @@ html[data-theme="light"] .feature-card p { color: var(--ink-2); }
 html[data-theme="light"] .card-tag { color: var(--ink-3); }
 html[data-theme="light"] .text-link { color: #6a3fc4; }
 
-html[data-theme="light"] .gallery-item {
-  border-color: rgba(124, 77, 214, 0.25);
+html[data-theme="light"] .video-frame {
+  border-color: rgba(124, 77, 214, 0.28);
   background: #e9e3f6;
   box-shadow: 0 30px 70px -34px rgba(60, 30, 120, 0.5);
-}
-
-html[data-theme="light"] .gallery-item:hover {
-  border-color: #7c4dd6;
-  box-shadow: 0 0 0 1px #7c4dd6, 0 30px 70px -28px rgba(100, 60, 200, 0.5);
 }
 
 /* соцсети под вопросами */

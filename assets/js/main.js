@@ -452,3 +452,48 @@
     });
   }
 })();
+
+
+// --- Вики: кнопки «Копировать» (data-copy) ---------------------------------
+(function () {
+  "use strict";
+  var buttons = document.querySelectorAll("[data-copy]");
+  if (!buttons.length) return;
+
+  function fallbackCopy(text) {
+    var area = document.createElement("textarea");
+    area.value = text;
+    area.setAttribute("readonly", "");
+    area.style.position = "fixed";
+    area.style.opacity = "0";
+    document.body.appendChild(area);
+    area.select();
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (err) { ok = false; }
+    document.body.removeChild(area);
+    return ok;
+  }
+
+  Array.prototype.forEach.call(buttons, function (button) {
+    var label = button.querySelector("span");
+    var original = label ? label.textContent : "";
+    var timer = null;
+    function show(text) {
+      if (!label) return;
+      label.textContent = text;
+      clearTimeout(timer);
+      timer = setTimeout(function () { label.textContent = original; }, 1800);
+    }
+    button.addEventListener("click", function () {
+      var text = button.getAttribute("data-copy");
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { show("Скопировано"); },
+          function () { show(fallbackCopy(text) ? "Скопировано" : "Не удалось"); }
+        );
+      } else {
+        show(fallbackCopy(text) ? "Скопировано" : "Не удалось");
+      }
+    });
+  });
+})();

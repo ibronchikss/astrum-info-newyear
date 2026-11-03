@@ -153,27 +153,13 @@
     sprites.light.push(makeSprite(kd, true));
   }
 
-  // Снежинки живут в координатах страницы: при прокрутке они остаются на своих местах
-  // и просто падают там, а не едут вместе с экраном.
-  var pageH = 0;
-  function pageHeight() {
-    var d = document.documentElement, b = document.body;
-    return Math.max(d.scrollHeight, b ? b.scrollHeight : 0, window.innerHeight);
-  }
-
   function resizeSnow() {
     dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     W = window.innerWidth;
     H = window.innerHeight;
     canvas.width = Math.round(W * dpr);
     canvas.height = Math.round(H * dpr);
-    syncWorld();
-  }
-
-  function syncWorld() {
-    pageH = pageHeight();
-    var perScreen = Math.max(16, Math.min(52, Math.round(W / 28)));
-    var count = Math.min(320, Math.round(perScreen * pageH / H));
+    var count = Math.max(16, Math.min(52, Math.round(W / 28)));
     while (flakes.length < count) flakes.push(makeFlake(true));
     flakes.length = count;
   }
@@ -182,7 +168,7 @@
     var size = 13 + Math.pow(Math.random(), 1.5) * 32;       // чаще мелкие, изредка крупные
     return {
       x: Math.random() * W,
-      y: anywhere ? Math.random() * pageH : -40,
+      y: anywhere ? Math.random() * H : -40,
       size: size,
       kind: Math.floor(Math.random() * KINDS),
       vy: 16 + size * 1.5 + Math.random() * 14,              // крупные «ближе» и падают быстрее
@@ -200,7 +186,6 @@
     var dt = Math.min((now - last) / 1000, 0.05);
     last = now;
     var set = root.getAttribute("data-theme") === "light" ? sprites.light : sprites.dark;
-    var top = window.pageYOffset || root.scrollTop || 0;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, W, H);
     for (var i = 0; i < flakes.length; i++) {
@@ -208,12 +193,10 @@
       f.y += f.vy * dt;
       f.ph += f.sp * dt;
       f.rot += f.spin * dt;
-      if (f.y > pageH + 40) { flakes[i] = makeFlake(false); continue; }
-      var sy = f.y - top;
-      if (sy < -f.size || sy > H + f.size) continue;         // вне экрана: только двигаем, не рисуем
+      if (f.y > H + 40) { flakes[i] = makeFlake(false); continue; }
       var x = f.x + Math.sin(f.ph) * f.amp;
       ctx.save();
-      ctx.translate(x, sy);
+      ctx.translate(x, f.y);
       ctx.rotate(f.rot);
       ctx.globalAlpha = f.o;
       ctx.drawImage(set[f.kind], -f.size / 2, -f.size / 2, f.size, f.size);
@@ -235,10 +218,6 @@
 
   resizeSnow();
   window.addEventListener("resize", resizeSnow);
-  window.addEventListener("load", syncWorld);
-  setInterval(function () {
-    if (!document.hidden && Math.abs(pageHeight() - pageH) > 40) syncWorld();
-  }, 1500);
   document.addEventListener("visibilitychange", function () {
     if (document.hidden) stopSnow(); else startSnow();
   });

@@ -508,3 +508,14 @@ html[data-theme="light"] .toc-count { background: rgba(124, 77, 214, 0.12); colo
 html[data-theme="light"] .rules-toc .toc-n { background: #f0ebfa; color: #7a6f94; }
 html[data-theme="light"] .rules-toc a:hover .toc-n { color: #5a2fb0; }
 html[data-theme="light"] .rules-toc a.is-active .toc-n { background: #7c4dd6; color: #fff; }
+
+/* ---------- Вики: статья и меню ---------- */
+html[data-theme="light"] .wk-side-card,
+html[data-theme="light"] .wk-article { box-shadow: 0 18px 40px -28px rgba(48, 28, 90, 0.35); }
+html[data-theme="light"] .wk-link.is-active { border-color: rgba(124, 77, 214, 0.35); }
+html[data-theme="light"] .wk-copy { background: #fff; }
+html[data-theme="light"] .photo-frame { box-shadow: 0 24px 60px -30px rgba(48, 28, 90, 0.5); }
+html[data-theme="light"][data-ny-page="wiki"]:not([data-ny="off"]) .wk-side-card::before,
+html[data-theme="light"][data-ny-page="wiki"]:not([data-ny="off"]) .wk-article::before {
+  filter: drop-shadow(0 1px 0 rgba(90, 120, 170, 0.45));
+}

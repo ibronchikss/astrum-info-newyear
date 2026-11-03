@@ -527,7 +527,7 @@ html:not([data-ny="off"])[data-ny-page="home"] .hero {
   isolation: isolate;
 }
 
-html:not([data-ny="off"])[data-ny-page="home"] .hero::before {
+html:not([data-ny="off"])[data-ny-page="home"] .hero::after {
   content: "";
   position: absolute;
   top: -40px;
@@ -817,7 +817,7 @@ html:not([data-ny="off"])[data-ny-page="more"] .faq details[open] {
 }
 
 /* ---------- Светлая тема ---------- */
-html[data-theme="light"][data-ny-page="home"] .hero::before {
+html[data-theme="light"][data-ny-page="home"] .hero::after {
   opacity: 0.55;
 }
 
@@ -892,7 +892,7 @@ html[data-theme="light"] .ny-deer {
   .ny-trail,
   .ny-santa-in,
   html:not([data-ny="off"]) .inner-page::before,
-  html:not([data-ny="off"])[data-ny-page="home"] .hero::before,
+  html:not([data-ny="off"])[data-ny-page="home"] .hero::after,
   html:not([data-ny="off"])[data-ny-page="home"] .hero-visual::before,
   html:not([data-ny="off"])[data-ny-page="home"] .hero-visual::after,
   html:not([data-ny="off"])[data-ny-page="more"] .support-banner::before {

@@ -19,7 +19,9 @@
 
 ## Вики и фото
 - **Вики** (`wiki.html`) — слева меню статей, справа статья «Основная информация» (текст из `astrums.pro/wiki`). Остальные статьи в меню ведут на официальную википедию `astrums.pro/wiki/...`; когда появятся свои страницы, замените ссылки в блоке `.wk-nav`. Стили — `.wk*` в `extra.css`, новогодние украшения — в `newyear.css` (раздел «Вики: статья…»). Кнопка «Копировать» — атрибут `data-copy`, код в конце `main.js`.
-- **Фото на главной** — блок `.photo-section` в `index.html` (над «Картой звёздного мира»), файл `assets/images/winter-aurora.webp`. Фото-баннер статьи вики — `assets/images/wiki-tree.webp`. Чтобы заменить, положите свой файл под тем же именем.
+- **Страницы вики** — `wiki.html` (основная информация), `wiki-how-play.html` (как играть) и `wiki-links.html` (ссылки). Баннеры — `assets/images/wiki-how-play.webp`, `wiki-links.webp`. Ссылки «Ссылок» — блок `.wk-pills`; у «YouTube-канала владельца» пока нет адреса (класс `is-soon`): впишите `href` и уберите `is-soon`.
+- **Шрифт заголовка «ASTRUM INFO»** — Poppins Bold, вшит прямо в `extra.css` (`@font-face` с base64, чтобы работал и без сервера).
+- **Фон первого экрана главной** — `assets/images/winter-aurora.webp` (тег `.hero-background` в `index.html` и `preload` в `<head>`). Фото-баннер статьи вики — `assets/images/wiki-tree.webp`. Чтобы заменить, положите свой файл под тем же именем.
 
 ## Что где менять
 - **Видео на главной** — блок `.video-section` в `index.html` (под лентой). Чтобы заменить ролик, поменяйте id в адресе `youtube-nocookie.com/embed/…` и в ссылке «Смотреть на YouTube».

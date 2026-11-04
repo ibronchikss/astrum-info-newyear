@@ -18,7 +18,7 @@
 
   // --- Какая это страница -----------------------------------------------------
   // У каждого раздела свои украшения: CSS цепляется за html[data-ny-page].
-  var PAGES = { index: "home", shop: "shop", rules: "rules", wiki: "wiki", navigation: "navigation", more: "more" };
+  var PAGES = { index: "home", shop: "shop", rules: "rules", wiki: "wiki", "wiki-how-play": "wiki", "wiki-links": "wiki", navigation: "navigation", more: "more" };
   var file = (location.pathname.split("/").pop() || "index.html").replace(/\.html$/, "") || "index";
   var page = PAGES[file] || "home";
   root.setAttribute("data-ny-page", page);

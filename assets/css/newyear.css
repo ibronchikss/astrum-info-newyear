@@ -217,9 +217,16 @@ html[data-theme="dark"]:not([data-ny="off"]) .astrum-site {
 
 /* ---------- Светлая тема ---------- */
 html[data-theme="light"] .ny-countdown {
-  border-color: rgba(214, 140, 0, 0.45);
-  background: linear-gradient(100deg, rgba(230, 57, 80, 0.1), rgba(47, 184, 122, 0.1));
+  border-color: rgba(255, 200, 87, 0.55);
+  background: linear-gradient(100deg, rgba(60, 14, 28, 0.72), rgba(10, 48, 36, 0.72));
 }
+
+html[data-theme="light"] .photo-hero .ny-countdown,
+html[data-theme="light"] .photo-hero .ny-countdown * {
+  color: #fff;
+}
+
+html[data-theme="light"] .photo-hero .ny-countdown-label { color: rgba(255, 255, 255, 0.75); }
 
 html[data-theme="light"] .ny-toggle {
   color: #3b82d6;
@@ -1068,54 +1075,23 @@ html:not([data-ny="off"])[data-ny-page="wiki"] .wk-side-card::after {
   pointer-events: none;
 }
 
-/* ===== Главная: фото мира — сосульки, сугроб, северное сияние ===== */
-html:not([data-ny="off"])[data-ny-page="home"] .photo-frame {
-  border-color: rgba(142, 197, 255, 0.4);
-  box-shadow: 0 0 0 1px rgba(142, 197, 255, 0.18), 0 0 60px -12px rgba(90, 220, 200, 0.35), 0 30px 70px -30px rgba(0, 0, 0, 0.8);
-}
-
-html:not([data-ny="off"])[data-ny-page="home"] .photo-frame::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 18px;
-  right: 18px;
-  z-index: 2;
-  height: 20px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='20' viewBox='0 0 56 20'%3E%3Cpath d='M0 0h56v3H0z M2 3h12l-6 17z M20 3h9l-4.5 10z M34 3h11l-5.5 14z' fill='%23dff0ff'/%3E%3C/svg%3E") repeat-x top left;
-  opacity: 0.95;
-  pointer-events: none;
-}
-
-html:not([data-ny="off"])[data-ny-page="home"] .photo-frame::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  z-index: 2;
-  height: 22px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='22' viewBox='0 0 96 22'%3E%3Cpath d='M0 22V15Q12 4 26 12T52 11T78 9T96 15V22Z' fill='%23eef6ff'/%3E%3C/svg%3E") repeat-x bottom left / 96px 22px;
-  pointer-events: none;
-}
-
-html:not([data-ny="off"])[data-ny-page="home"] .photo-frame figcaption { padding-bottom: 54px; }
-
-html:not([data-ny="off"])[data-ny-page="home"] .photo-frame figcaption .eyebrow::before {
-  content: "";
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  margin: -3px 8px -3px 0;
-  background: url("../images/ny/star.png") center / 16px 16px no-repeat;
-  image-rendering: pixelated;
-}
-
-@media (max-width: 760px) {
-  html:not([data-ny="off"])[data-ny-page="home"] .photo-frame figcaption { padding-bottom: 38px; }
-  html:not([data-ny="off"])[data-ny-page="wiki"] .wk-side-card { padding-bottom: 70px; }
-}
-
 @media (prefers-reduced-motion: reduce) {
   html:not([data-ny="off"])[data-ny-page="wiki"] .wk-banner::before { animation: none; }
+}
+
+/* ===== Вики: ссылки — гирлянда над названиями групп ===== */
+html:not([data-ny="off"])[data-ny-page="wiki"] .wk-lgroup h4::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin-top: 6px;
+  border-radius: 2px;
+  background: repeating-linear-gradient(90deg, var(--ny-red) 0 14px, var(--ny-gold) 14px 28px, var(--ny-green) 28px 42px);
+}
+
+html:not([data-ny="off"])[data-ny-page="wiki"] a.wk-pill:hover { border-color: var(--ny-gold); }
+
+@media (max-width: 760px) {
+  html:not([data-ny="off"])[data-ny-page="wiki"] .wk-side-card { padding-bottom: 70px; }
 }

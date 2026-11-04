@@ -91,55 +91,41 @@ html[data-theme="light"] .brand-logo img {
 }
 
 /* ---------- Главная ---------- */
-/* Первый экран со статуей: фото без затемнения, только лёгкая светлая дымка слева под текстом
-   и плавный переход внизу в цвет страницы. Текст — тёмный. */
+/* Первый экран — тёмное ночное фото с северным сиянием: как и в тёмной теме, текст светлый,
+   слева лёгкое затемнение под текстом, внизу плавный переход в цвет светлой страницы. */
 html[data-theme="light"] .hero.photo-hero {
-  background: #cfe0f5;
+  background: #0e1020;
 }
 
 html[data-theme="light"] .photo-hero::before {
   background:
-    linear-gradient(90deg, rgba(247, 245, 252, 0.9) 0%, rgba(247, 245, 252, 0.7) 28%, rgba(247, 245, 252, 0.2) 52%, rgba(247, 245, 252, 0) 70%),
-    linear-gradient(rgba(247, 245, 252, 0) 68%, rgba(247, 245, 252, 0.7) 92%, rgba(247, 245, 252, 0.95) 100%);
+    linear-gradient(90deg, rgba(8, 8, 20, 0.72) 0%, rgba(8, 8, 20, 0.45) 32%, rgba(8, 8, 20, 0.08) 58%, rgba(8, 8, 20, 0) 72%),
+    linear-gradient(rgba(247, 245, 252, 0) 82%, rgba(247, 245, 252, 0.85) 96%, rgba(247, 245, 252, 1) 100%);
 }
 
-html[data-theme="light"] .photo-hero h1 {
-  color: var(--ink);
-  text-shadow: none;
-}
-
-html[data-theme="light"] .photo-hero h1 > span {
-  color: #d41fa9;
-}
-
-html[data-theme="light"] .photo-hero .hero-copy > p {
-  color: var(--ink-2);
-  text-shadow: none;
-}
+html[data-theme="light"] .photo-hero h1 { color: #fff; text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45); }
+html[data-theme="light"] .photo-hero h1 > span { color: #ff5fd8; }
+html[data-theme="light"] .photo-hero .hero-copy > p { color: rgba(255, 255, 255, 0.88); text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5); }
 
 html[data-theme="light"] .photo-hero .eyebrow.season {
-  border-color: rgba(124, 77, 214, 0.3);
-  background: rgba(255, 255, 255, 0.78);
-  color: #5a3d96;
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(14, 12, 28, 0.6);
+  color: #e6dcff;
 }
 
-html[data-theme="light"] .photo-hero .server-address small { color: var(--ink-3); }
-html[data-theme="light"] .photo-hero .server-address strong { color: var(--ink); }
-html[data-theme="light"] .photo-hero .server-address { color: var(--ink-2); }
-html[data-theme="light"] .photo-hero .hero-facts { color: var(--ink-2); }
-html[data-theme="light"] .photo-hero .hero-facts svg { color: #7c4dd6; }
-html[data-theme="light"] .photo-hero .floating-star { color: #8a5cdc; }
-html[data-theme="light"] .photo-hero .star-two { color: #6f5aa8; }
-html[data-theme="light"] .photo-hero .planet-halo { border-color: rgba(255, 255, 255, 0.55); }
-html[data-theme="light"] .photo-hero .planet-halo::after { border-color: rgba(255, 255, 255, 0.5); }
+html[data-theme="light"] .photo-hero .server-address small { color: rgba(255, 255, 255, 0.7); }
+html[data-theme="light"] .photo-hero .server-address strong { color: #fff; }
+html[data-theme="light"] .photo-hero .server-address { color: rgba(255, 255, 255, 0.85); }
+html[data-theme="light"] .photo-hero .hero-facts { color: rgba(255, 255, 255, 0.88); }
+html[data-theme="light"] .photo-hero .hero-facts svg { color: #c9a8ff; }
+html[data-theme="light"] .photo-hero .floating-star { color: #d9c8ff; }
+html[data-theme="light"] .photo-hero .star-two { color: #d9c8ff; }
 
 @media (max-width: 760px) {
   html[data-theme="light"] .photo-hero::before {
     background:
-      linear-gradient(180deg, rgba(247, 245, 252, 0.76) 0%, rgba(247, 245, 252, 0.6) 52%, rgba(247, 245, 252, 0.06) 78%, rgba(247, 245, 252, 0.5) 100%);
+      linear-gradient(180deg, rgba(8, 8, 20, 0.7) 0%, rgba(8, 8, 20, 0.5) 55%, rgba(8, 8, 20, 0.15) 80%, rgba(247, 245, 252, 0.9) 100%);
   }
-
-  html[data-theme="light"] .photo-hero .hero-copy > p { color: var(--ink-2); }
 }
 
 /* «Карта звёздного мира» в светлой теме: бледно-лавандовое небо и тёмный текст
@@ -514,7 +500,6 @@ html[data-theme="light"] .wk-side-card,
 html[data-theme="light"] .wk-article { box-shadow: 0 18px 40px -28px rgba(48, 28, 90, 0.35); }
 html[data-theme="light"] .wk-link.is-active { border-color: rgba(124, 77, 214, 0.35); }
 html[data-theme="light"] .wk-copy { background: #fff; }
-html[data-theme="light"] .photo-frame { box-shadow: 0 24px 60px -30px rgba(48, 28, 90, 0.5); }
 html[data-theme="light"][data-ny-page="wiki"]:not([data-ny="off"]) .wk-side-card::before,
 html[data-theme="light"][data-ny-page="wiki"]:not([data-ny="off"]) .wk-article::before {
   filter: drop-shadow(0 1px 0 rgba(90, 120, 170, 0.45));
